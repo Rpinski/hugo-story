@@ -233,7 +233,11 @@
 						$gallery = $a.parents('.gallery'),
 						$modal = $gallery.children('.modal'),
 						$modalImg = $modal.find('img'),
-						href = $a.attr('href');
+						$modalImageTitle = $modal.find('.imgtitle').children('span'),
+						$modalImageSubTitle = $modal.find('.imgsubtitle').children('span'),
+						href = $a.attr('href'),
+						imgtitle = $a.attr('data-imgtitle'),
+						imgsubtitle = $a.attr('data-imgsubtitle');
 
 					// Not an image? Bail.
 						if (!href.match(/\.(jpg|gif|png|mp4)$/))
@@ -252,6 +256,10 @@
 
 					// Set src.
 						$modalImg.attr('src', href);
+						
+					// Set title/subtitle
+						$modalImageTitle.text(imgtitle)
+						$modalImageSubTitle.text(imgsubtitle)
 
 					// Set visible.
 						$modal.addClass('visible');
@@ -271,7 +279,9 @@
 				.on('click', '.modal', function(event) {
 
 					var $modal = $(this),
-						$modalImg = $modal.find('img');
+						$modalImg = $modal.find('img'),
+						$modalImageTitle = $modal.find('.imgtitle').children('span'),
+						$modalImageSubTitle = $modal.find('.imgsubtitle').children('span');
 
 					// Locked? Bail.
 						if ($modal[0]._locked)
@@ -297,7 +307,11 @@
 							setTimeout(function() {
 
 								// Clear src.
-									$modalImg.attr('src', '');
+                  					$modalImg.attr('src', '');
+                  
+								// Clear span
+							$modalImageTitle.text('')
+							$modalImageSubTitle.text('')
 
 								// Unlock.
 									$modal[0]._locked = false;
@@ -319,7 +333,7 @@
 							$modal.trigger('click');
 
 				})
-				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><img src="" /></div></div>')
+				.prepend('<div class="modal" tabIndex="-1"><div class="inner"><div class="imgtitle"><span></span></div><div><img src="" /></div><div class="imgsubtitle"><span></span></div></div></div>')
 					.find('img')
 						.on('load', function(event) {
 

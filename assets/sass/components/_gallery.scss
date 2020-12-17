@@ -554,12 +554,26 @@
 					'transform #{_duration(gallery-lightbox) * 0.5} ease'
 				));
 				opacity: 0;
+				border-width: 0 .5rem;
+				border-color: _palette(bg-transparent);
+				border-style: solid;
+				border-radius: .5rem;
+				box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.35);
 
 				img {
 					display: block;
 					max-width: 90vw;
 					max-height: 85vh;
-					box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.35);
+				}
+
+				.imgtitle {
+					text-align: center;
+					background-color:_palette(bg-transparent);
+				}
+
+				.imgsubtitle {
+					text-align: right;
+					background-color: _palette(bg-transparent);
 				}
 			}
 
@@ -596,6 +610,9 @@
 				.inner {
 					img {
 						max-width: 100vw;
+					}
+					.imgtitle, .imgsubtitle {
+						padding: 0 .5rem;
 					}
 				}
 			}
