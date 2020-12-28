@@ -102,6 +102,7 @@
 					display: block;
 					width: 100%;
 					border-radius: 0;
+					border: 3px solid transparent;
 				}
 			}
 
@@ -554,11 +555,6 @@
 					'transform #{_duration(gallery-lightbox) * 0.5} ease'
 				));
 				opacity: 0;
-				border-width: 0 .5rem;
-				border-color: _palette(bg-transparent);
-				border-style: solid;
-				border-radius: .5rem;
-				box-shadow: 0 1rem 3rem 0 rgba(0, 0, 0, 0.35);
 
 				img {
 					display: block;
@@ -568,12 +564,10 @@
 
 				.imgtitle {
 					text-align: center;
-					background-color:_palette(bg-transparent);
 				}
 
 				.imgsubtitle {
 					text-align: right;
-					background-color: _palette(bg-transparent);
 				}
 			}
 
@@ -618,17 +612,3 @@
 			}
 		}
 	}
-
-// Mixin
-
-	@mixin color-gallery($p: null) {
-		.gallery {
-			article {
-				.image {
-					background-color: transparentize(_palette($p, fg-bold), 0.875);
-				}
-			}
-		}
-	}
-
-	@include color-gallery;
