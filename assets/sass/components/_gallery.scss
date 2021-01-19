@@ -148,6 +148,10 @@
 					opacity: 1;
 				}
 			}
+
+			.title {
+				margin: 0 3px;
+			}
 		}
 
 		@include breakpoint('<=large') {
