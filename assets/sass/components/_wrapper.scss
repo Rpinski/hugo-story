@@ -43,7 +43,7 @@
 
 		@include breakpoint('<=small') {
 			> .inner {
-				@include padding(_size(padding, small) * 1.5, _size(padding, small));
+				@include padding(_size(padding, small) * 1.5, _size(padding, small), (_size(padding, small), 0, 0, 0));
 			}
 		}
 	}
