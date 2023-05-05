@@ -5,7 +5,7 @@
 .w3-pp-color {
     color: _palette(fg) !important;
     background-color: _palette(bg-transparent) !important;
-    transition: background-color 0s !important;
+    transition: background-color 0.3s !important;
 }
 
 .w3-hover-pp-color-transparent {
@@ -39,4 +39,8 @@
 
 .pp-menu #burger .w3-bar-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pp-menu #burger.w3-show {
+  animation: opac 0.3s;
 }
